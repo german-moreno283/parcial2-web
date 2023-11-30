@@ -20,7 +20,7 @@ export class FotoEntity {
   fecha:Date;
 
   @Column()
-  archivo:File;
+  archivo:string;
 
   @ManyToOne(()=>UsuarioEntity, usuario=>usuario.fotos)
   usuario:UsuarioEntity;
