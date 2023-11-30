@@ -50,5 +50,6 @@ export class AlbumService {
     if (album.fotos.length!==0)
       throw new BusinessLogicException("El album tiene fotos y no se puede eliminar", BusinessError.PRECONDITION_FAILED)
     await this.albumRepository.remove(album);
+    return true;
   }
 }
