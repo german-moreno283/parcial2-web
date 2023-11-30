@@ -6,10 +6,14 @@ import { RedSocialModule } from './red-social/red-social.module';
 import { FotoModule } from './foto/foto.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { AlbumModule } from './album/album.module';
+import { RedSocialEntity } from './red-social/red-social.entity';
+import { FotoEntity } from './foto/foto.entity';
+import { UsuarioEntity } from './usuario/usuario.entity';
+import { AlbumEntity } from './album/album.entity';
 
 
 @Module({
-  imports: [//TODO Agregar Modulos so no estan auto
+  imports: [
     TypeOrmModule.forRoot({
     type: 'postgres',
     host: 'localhost',
@@ -17,7 +21,7 @@ import { AlbumModule } from './album/album.module';
     username: 'postgres',
     password: 'postgres',
     database: 'parcial',
-    entities: [/*TODO: importar entidades */],
+    entities: [RedSocialEntity,FotoEntity, UsuarioEntity, AlbumEntity],
     dropSchema: true,
     synchronize: true,
     keepConnectionAlive: true

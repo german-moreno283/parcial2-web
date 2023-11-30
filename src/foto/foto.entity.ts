@@ -19,6 +19,9 @@ export class FotoEntity {
   @Column()
   fecha:Date;
 
+  @Column()
+  archivo:File;
+
   @ManyToOne(()=>UsuarioEntity, usuario=>usuario.fotos)
   usuario:UsuarioEntity;
 
