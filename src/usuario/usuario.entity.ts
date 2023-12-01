@@ -18,6 +18,6 @@ export class UsuarioEntity {
   fotos: FotoEntity[];
 
   @ManyToOne(()=>RedSocialEntity, redsocial=>redsocial.usuarios)
-  redsocial: UsuarioEntity[];
+  redsocial: RedSocialEntity;
 
 }

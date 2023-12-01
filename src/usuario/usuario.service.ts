@@ -20,7 +20,7 @@ export class UsuarioService {
   async findUsuarioById(usuarioId:string){
     const usuario: UsuarioEntity = await this.usuarioRepository.findOne({where:{id:usuarioId}, relations:['fotos','redsocial']})
     if (!usuario)
-      throw new BusinessLogicException("No se encontro el album", BusinessError.NOT_FOUND);
+      throw new BusinessLogicException("No se encontro el usuario", BusinessError.NOT_FOUND);
     return usuario;
   }
 
