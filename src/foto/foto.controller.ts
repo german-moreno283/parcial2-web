@@ -1,10 +1,12 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, UseInterceptors } from '@nestjs/common';
 import { FotoService } from './foto.service';
 import { FotoDto } from './foto.dto';
 import { FotoEntity } from './foto.entity';
 import { plainToInstance } from 'class-transformer';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors/business-errors.interceptor';
 
-@Controller('foto')
+@Controller('fotos')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class FotoController {
   constructor(
     private readonly fotoService: FotoService,

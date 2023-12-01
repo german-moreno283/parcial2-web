@@ -1,10 +1,12 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { UsuarioDto } from './usuario.dto';
 import { UsuarioEntity } from './usuario.entity';
 import { plainToInstance } from 'class-transformer';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors/business-errors.interceptor';
 
-@Controller('usuario')
+@Controller('usuarios')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class UsuarioController {
   constructor(
     private readonly usuarioService: UsuarioService,

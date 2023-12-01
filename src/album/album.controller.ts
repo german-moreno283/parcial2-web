@@ -29,5 +29,8 @@ export class AlbumController {
     return await this.albumService.delete(albumId);
   }
 
-  /* TODO: Hacer el metodo de agregar foto a album */
+  @Post(':albumId/fotos/:fotoId')
+  async addPhotoToAlbum(@Param('albumId') albumId:string, @Param('fotoId') fotoId:string){
+    return await this.albumService.addPhotoToAlbum(albumId, fotoId);
+  }
 }
