@@ -2,7 +2,8 @@
 # Programación con tecnologías web
 ## Germán Leonardo Moreno Cainaba
 ## Cod. 202116701
-## Description
+## Descripción postman
+Se realizaron pruebas para cada uno de los métodos de los controladores. Teniendo en cuenta los casos positivos y negativos y sus códigos HTTP. Confirmando que las verificaciones estuvieran bien hechas y los codigos de error fueran los esperados.
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
