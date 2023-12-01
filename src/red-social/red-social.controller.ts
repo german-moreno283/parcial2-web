@@ -5,7 +5,7 @@ import { RedSocialEntity } from './red-social.entity';
 import { plainToInstance } from 'class-transformer';
 import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors/business-errors.interceptor';
 
-@Controller('red-social')
+@Controller('redes-sociales')
 @UseInterceptors(BusinessErrorsInterceptor)
 export class RedSocialController {
   constructor(

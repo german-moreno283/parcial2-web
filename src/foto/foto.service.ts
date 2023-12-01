@@ -53,9 +53,12 @@ export class FotoService {
     const foto: FotoEntity = await this.fotoRepository.findOne({where:{id:fotoId}, relations:['album','usuario']})
     if (!foto)
       throw new BusinessLogicException("No se encontro la foto", BusinessError.NOT_FOUND);
+    
+    if(foto.album){
     const album: AlbumEntity = await this.albumRepository.findOne({where:{id:foto.album.id},relations:["fotos"]})
-    if(album.fotos.length===1)
-      this.albumRepository.remove(foto.album);
+        if(album.fotos.length===1)
+          this.albumRepository.remove(foto.album);
+    }    
     this.fotoRepository.remove(foto);
     return true;
   }

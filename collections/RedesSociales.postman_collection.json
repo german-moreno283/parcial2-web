@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "584b84f7-0611-4afa-a03a-61f74cc475d2",
+		"name": "RedesSociales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27530079"
+	},
+	"item": [
+		{
+			"name": "Add a redSocial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status is 201',function(){\r",
+							"    pm.response.to.have.status(201);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"facebook\",\r\n    \"slogan\":\"Es gratis y lo será para siempre\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/redes-sociales",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"redes-sociales"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a redSocial",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"facebook\",\r\n    \"slogan\":\"Es gratis y lo será para siempre\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/redes-sociales",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"redes-sociales"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"nombre\": \"facebook\",\r\n    \"slogan\": \"Es gratis y lo será para siempre\",\r\n    \"id\": \"a97aeb35-280e-4b50-8e14-03115ebadd94\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a invalid redSocial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status is 412',function(){\r",
+							"    pm.response.to.have.status(412);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El slogan no puede estar vacio\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"facebook\",\r\n    \"slogan\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/redes-sociales",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"redes-sociales"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a invalid redSocial",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"facebook\",\r\n    \"slogan\":\"Es gratis y lo será para siempre\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/redes-sociales",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"redes-sociales"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 412,\r\n    \"message\": \"El slogan no puede estar vacio\"\r\n}"
+				}
+			]
+		}
+	]
+}
